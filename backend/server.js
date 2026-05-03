@@ -8,7 +8,15 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// CORS eka ganata update kala
+app.use(cors({
+  origin: [
+    "https://idyllic-sprinkles-4be144.netlify.app", 
+    "http://localhost:5173"                         
+  ],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
